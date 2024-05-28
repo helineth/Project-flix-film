@@ -40,15 +40,19 @@ export default function Results() {
                     Voltar para Home
                 </button>
             </header>
+            {loading ? (
 
-            <main className="w-full mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-                {loading ? (
-                    <div className="flex justify-center items-center min-h-screen column">
+                <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white w-full">
+                    <div className="text-center">
                         <div className="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-32 w-32 mb-4"></div>
-                        <h2 className="text-xl font-semibold text-white">Carregando...</h2>
+                        <h2 className="text-xl font-semibold">Carregando...</h2>
                     </div>
-                ) : (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                </div>
+
+            ) : (
+                <main className="w-full px-2 mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+
+                    <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                         {movies.length > 0 ? (
                             movies.map(movie => (
                                 <MovieCard key={movie.imdbID} movie={movie} />
@@ -59,8 +63,9 @@ export default function Results() {
                             </p>
                         )}
                     </div>
-                )}
-            </main>
+                </main>
+            )}
+
         </div>
     );
 }

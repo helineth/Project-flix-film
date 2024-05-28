@@ -12,7 +12,7 @@ export default function MovieCard(props: MovieCardProps) {
   };
   return (
     <div onClick={handleSubmit} className="bg-gray-800 text-white rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105 cursor-pointer">
-      <div className="relative w-full h-64">
+      <div className="relative w-full md:w-full  h-56 sm:h-64">
         {movie.Poster === "N/A" && (
           <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
             <svg

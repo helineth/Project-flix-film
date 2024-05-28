@@ -1,5 +1,5 @@
 import MenuItem from "./MenuItem"
-
+import { useNavigate } from 'react-router-dom';
 interface HeaderProps {
     searchValue: string
     setSearchValue: (e: string) => void
@@ -7,7 +7,9 @@ interface HeaderProps {
 
 export default function Header(props: HeaderProps): JSX.Element {
     const { searchValue, setSearchValue } = props
+    const navigation = useNavigate()
     const handleSubmit = () => {
+        navigation(`/results/:title/${searchValue}`)
         // e.preventDefault();
         //router.push(`/search/${search}`);
     };
@@ -33,21 +35,28 @@ export default function Header(props: HeaderProps): JSX.Element {
                     className='flex justify-between px-5 max-w-6xl mx-auto'
                     onSubmit={handleSubmit}
                 >
-                    <input
-                        type='text'
-                        placeholder='Search keywords...'
-                        className='w-full h-14 rounded-md placeholder-gray-500 outline-none bg-transparent flex-1'
-                        value={searchValue}
-                        onChange={(e) => setSearchValue(e.target.value)}
-                    />
+                    <label className="relative block w-full max-w-xs">
+                        <span className="sr-only">Search</span>
+                        <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+                            <svg className="h-5 w-5 fill-slate-300" viewBox="0 0 20 20"></svg>
+                        </span>
+                        <input
+                            value={searchValue}
+                            onChange={e => setSearchValue(e.target.value)}
+                            className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+                            placeholder="Pesquisar pelo nome"
+                            type="text"
+                            name="search"
+                        />
+                    </label>
                     <button
                         className='text-amber-600 disabled:text-gray-400'
                         disabled={searchValue === ''}
                     >
-                        Search
+                        Pesquisar
                     </button>
                 </form>
-                <label className="relative block w-full max-w-xs">
+                {/*       <label className="relative block w-full max-w-xs">
                     <span className="sr-only">Search</span>
                     <span className="absolute inset-y-0 left-0 flex items-center pl-2">
                         <svg className="h-5 w-5 fill-slate-300" viewBox="0 0 20 20"></svg>
@@ -60,7 +69,7 @@ export default function Header(props: HeaderProps): JSX.Element {
                         type="text"
                         name="search"
                     />
-                </label>
+                </label> */}
             </div>
         </header>
     )

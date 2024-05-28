@@ -7,14 +7,14 @@ import MovieCard from "../../components/MovieCard";
 export default function Results() {
     const params = useParams()
     const {
-        imdbID
+        title
     } = params;
     const apiKey = '8b95da48';
     const [movies, setMovies] = useState<MovieType[]>([]);
 
     useEffect(() => {
         const fetchMovies = async () => {
-            const { data } = await axios.get(`http://www.omdbapi.com/?s=${imdbID}&apikey=${apiKey}&r=json`);
+            const { data } = await axios.get(`http://www.omdbapi.com/?s=${title}&apikey=${apiKey}&r=json`);
             if (data.Search) {
                 setMovies(data.Search);
             }
@@ -27,7 +27,6 @@ export default function Results() {
 
             {
                 movies.length > 0 ?
-
                     movies.map(movie => (
                         <MovieCard key={movie.imdbID} movie={movie} />
                     ))

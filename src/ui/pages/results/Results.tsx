@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { MovieType } from "../../../types/FilmType";
 import axios from "axios";
 import MovieCard from "../../components/MovieCard";
+import Loading from "../../components/Loading";
 
 export default function Results() {
     const params = useParams();
@@ -20,7 +21,7 @@ export default function Results() {
                     setMovies(data.Search);
                 }
             } catch (error) {
-                console.error("Error fetching movies:", error);
+                console.error("Erro ao fazer requisição:", error);
             } finally {
                 setLoading(false);
             }
@@ -41,14 +42,7 @@ export default function Results() {
                 </button>
             </header>
             {loading ? (
-
-                <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white w-full">
-                    <div className="text-center">
-                        <div className="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-32 w-32 mb-4"></div>
-                        <h2 className="text-xl font-semibold">Carregando...</h2>
-                    </div>
-                </div>
-
+                <Loading />
             ) : (
                 <main className="w-full px-2 mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
 

@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { DetailsMovieType } from "../../../types/DetailsMovieType";
+import Loading from "../../components/Loading";
 
 export default function MovieDetails() {
     const params = useParams()
@@ -32,14 +33,7 @@ export default function MovieDetails() {
     }, [imdbID]);
 
     if (loading) {
-        return (
-            <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white">
-                <div className="text-center">
-                    <div className="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-32 w-32 mb-4"></div>
-                    <h2 className="text-xl font-semibold">Carregando...</h2>
-                </div>
-            </div>
-        );
+        <Loading />
     }
 
     if (movie) {
@@ -50,7 +44,7 @@ export default function MovieDetails() {
                         onClick={() => navigate('/')}
                         className="px-4 py-2 bg-red-600 text-white rounded-md shadow hover:bg-red-700 transition duration-300"
                     >
-                        Voltar para Home
+                        Página inicial
                     </button>
                 </header>
                 <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-red-500 text-white p-4">

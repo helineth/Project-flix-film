@@ -9,7 +9,11 @@ export default function Header(props: HeaderProps): JSX.Element {
     const { searchValue, setSearchValue } = props
     const navigation = useNavigate()
     const handleSubmit = () => {
-        navigation(`/results/:title/${searchValue}`)
+        const title = searchValue
+        navigation(`/results/${title}`)
+    };
+    const goToHome = () => {
+        navigation("/")
     };
     return (
         /*   <div className='flex justify-between items-center p-3 max-w-6xl mx-auto'>
@@ -26,9 +30,9 @@ export default function Header(props: HeaderProps): JSX.Element {
             </a>
           </div>
         </div> */
-        <header className="bg-transparent w-full flex h-16 items-center justify-between px-4">
+        <header className="bg-transparent w-full flex h-16 items-center justify-between px-4 cursor-pointer">
             <div className="max-w-7xl w-full flex justify-between items-center mx-auto">
-                <h1 className="text-2xl font-bold tracking-tight text-red-600">Flix Films</h1>
+                <h1 onClick={goToHome}  className="text-2xl font-bold tracking-tight text-red-600">Flix Films</h1>
                 <form
                     className='flex items-center space-x-4'
                     onSubmit={handleSubmit}

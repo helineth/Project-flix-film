@@ -31,7 +31,7 @@ export default function Results() {
     }, [title]);
 
     return (
-        <div className="w-full min-h-screen bg-gradient-to-r from-gray-900 via-gray-800 to-red-500">
+        <main className="w-full min-h-screen bg-gradient-to-r from-gray-900 via-gray-800 to-red-500">
             <header className="w-full p-4 flex justify-between items-center bg-gray-900 shadow-md">
                 <h1 className="text-2xl text-white font-bold">Resultados da Pesquisa</h1>
                 <button
@@ -44,7 +44,7 @@ export default function Results() {
             {loading ? (
                 <Loading />
             ) : (
-                <main className="w-full px-2 mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+                <section className="w-full px-2 mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
 
                     <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                         {movies.length > 0 ? (
@@ -57,9 +57,9 @@ export default function Results() {
                             </p>
                         )}
                     </div>
-                </main>
+                </section>
             )}
 
-        </div>
+        </main>
     );
 }

@@ -38,7 +38,7 @@ export default function MovieDetails() {
 
     if (movie) {
         return (
-            <>
+            <section>
                 <header className="w-full p-4 flex justify-between items-center bg-gray-900 shadow-md">
                     <button
                         onClick={() => navigate('/')}
@@ -52,7 +52,7 @@ export default function MovieDetails() {
                     <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
                         <img
                             src={movie?.Poster}
-                            alt={movie?.Title}
+                            alt={`Poster do filme ${movie?.Title}}`}
                             className="w-full md:w-1/3 rounded-lg shadow-lg"
                         />
                         <div className="flex flex-col space-y-4">
@@ -78,7 +78,7 @@ export default function MovieDetails() {
                         </div>
                     </div>
                 </div>
-            </>
+            </section>
         );
     }
 }

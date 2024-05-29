@@ -32,21 +32,21 @@ export default function Home() {
 
 
   return (
-    <div className="w-full min-h-screen bg-gradient-to-r from-gray-900 via-gray-800 to-red-500">
+    <main className="w-full min-h-screen bg-gradient-to-r from-gray-900 via-gray-800 to-red-500">
       <Header searchValue={searchValue} setSearchValue={setSearchValue} />
 
       {loading ? (
         <Loading />
       ) : (
-        <main className="w-full px-2 mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+        <section className="w-full px-2 mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
 
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {movies.map(movie => (
               <MovieCard key={movie.imdbID} movie={movie} />
             ))}
           </div>
-        </main>
+        </section>
       )}
-    </div>
+    </main>
   );
 }

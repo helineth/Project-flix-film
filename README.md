@@ -38,5 +38,7 @@ A aplicação estará disponível em http://localhost:5173.
 1. **Link do Repositório**:  `https://github.com/helineth/Project-flix-film`
 2. **Capturas de Tela**: 
 
+
 ![flix-too](https://github.com/helineth/Project-flix-film/assets/76258195/76e85555-aee9-4827-b071-47ed56017127)
 ![flix](https://github.com/helineth/Project-flix-film/assets/76258195/2c871a7b-c587-4df5-9c5e-1eb20eca1811)
+

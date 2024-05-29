@@ -30,7 +30,7 @@ export default function MovieCard(props: MovieCardProps) {
           </div>
         )}
         {movie.Poster !== "N/A" && (
-          <img src={movie.Poster} alt={movie.Title} className="absolute inset-0 w-full h-full object-cover" />
+          <img src={movie.Poster}  alt={`Poster do filme ${movie.Title}}`} className="absolute inset-0 w-full h-full object-cover" />
         )}
       </div>
       <div className="p-4 flex flex-col">

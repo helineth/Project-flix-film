@@ -15,6 +15,7 @@ export default function Header(props: HeaderProps): JSX.Element {
     const goToHome = () => {
         navigation("/")
     };
+    
     return (
         <header className="bg-transparent w-full flex h-16 items-center justify-between px-4 cursor-pointer">
             <div className="max-w-7xl w-full flex justify-between items-center mx-auto">
@@ -23,6 +24,7 @@ export default function Header(props: HeaderProps): JSX.Element {
                     className='flex items-center space-x-4'
                     onSubmit={handleSubmit}
                 >
+                    <label htmlFor="movie-search" className="block text-sm font-medium text-transparent">Pesquisar Filmes</label>
                     <input
                         value={searchValue}
                         onChange={e => setSearchValue(e.target.value)}
@@ -30,6 +32,7 @@ export default function Header(props: HeaderProps): JSX.Element {
                         placeholder="Pesquisar pelo nome"
                         type="text"
                         name="search"
+                        id='movie-search'
                     />
 
                     <button

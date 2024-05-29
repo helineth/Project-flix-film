@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
 import MovieCard from "../../components/MovieCard";
-import { MovieType } from "../../../types/FilmType";
+import { MovieType } from "../../../types/MovieType";
 import axios from "axios";
 import Header from "../../components/Header";
 import Loading from "../../components/Loading";
 
 export default function Home() {
-  const apiKey = '8b95da48';
+  const apiKey = import.meta.env.VITE_API_KEY;
   const [movies, setMovies] = useState<MovieType[]>([]);
   const [searchValue, setSearchValue] = useState("");
   const [loading, setLoading] = useState(true);
+
+ 
+  
   useEffect(() => {
     const fetchMovies = async () => {
       try {

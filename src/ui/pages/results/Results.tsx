@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { MovieType } from "../../../types/FilmType";
+import { MovieType } from "../../../types/MovieType";
 import axios from "axios";
 import MovieCard from "../../components/MovieCard";
 import Loading from "../../components/Loading";
@@ -8,7 +8,7 @@ import Loading from "../../components/Loading";
 export default function Results() {
     const params = useParams();
     const { title } = params;
-    const apiKey = '8b95da48';
+    const apiKey = import.meta.env.VITE_API_KEY;
     const [movies, setMovies] = useState<MovieType[]>([]);
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();

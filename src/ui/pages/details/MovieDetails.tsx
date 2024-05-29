@@ -9,7 +9,7 @@ export default function MovieDetails() {
     const {
         imdbID
     } = params;
-    const apiKey = '8b95da48';
+    const apiKey = import.meta.env.VITE_API_KEY;
     const [movie, setMovie] = useState<DetailsMovieType>();
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();

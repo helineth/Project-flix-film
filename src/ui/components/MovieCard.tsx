@@ -1,4 +1,4 @@
-import { MovieType } from "../../types/FilmType"
+import { MovieType } from "../../types/MovieType"
 import { useNavigate } from 'react-router-dom';
 interface MovieCardProps {
   movie: MovieType
